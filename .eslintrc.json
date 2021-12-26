@@ -4,9 +4,10 @@
     "prettier",
     "plugin:prettier/recommended",
     "plugin:jest/recommended",
-    "plugin:unicorn/recommended"
+    "plugin:unicorn/recommended",
+    "plugin:cypress/recommended"
   ],
-  "plugins": ["prettier", "jest", "unicorn"],
+  "plugins": ["prettier", "jest", "unicorn", "cypress"],
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
@@ -48,6 +49,12 @@
             }
           }
         ]
+      }
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.js"],
+      "rules": {
+        "jest/expect-expect": "off"
       }
     }
   ]
