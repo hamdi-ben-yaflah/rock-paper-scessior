@@ -4,10 +4,9 @@
     "prettier",
     "plugin:prettier/recommended",
     "plugin:jest/recommended",
-    "plugin:unicorn/recommended",
     "plugin:cypress/recommended"
   ],
-  "plugins": ["prettier", "jest", "unicorn", "cypress"],
+  "plugins": ["prettier", "jest", "cypress"],
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
@@ -39,23 +38,9 @@
         "prettier/prettier": "warn",
         "no-unused-vars": "warn",
         "import/extensions": [1, "never"],
-        "unicorn/filename-case": [
+        "import/no-extraneous-dependencies": [
           "error",
-          {
-            "cases": {
-              "camelCase": true,
-              "pascalCase": true,
-              "kebabCase": true
-            }
-          }
-        ],
-        "unicorn/prevent-abbreviations": [
-          "error",
-          {
-            "allowList": {
-              "Props": true
-            }
-          }
+          { "devDependencies": true }
         ]
       }
     },
