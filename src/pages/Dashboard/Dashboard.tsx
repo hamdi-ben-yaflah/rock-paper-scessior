@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import { Typography, Row, Col, Space } from "antd";
 import { Link } from "react-router-dom";

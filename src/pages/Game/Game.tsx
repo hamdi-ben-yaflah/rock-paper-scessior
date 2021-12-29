@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Button } from "antd";
 import React, { useEffect, useState, useContext } from "react";
 import { ChoicesContext } from "../../App";
@@ -27,7 +28,13 @@ function Game({ setScore }: GameProps) {
       const playerResut = winner(playerChoice, computerChoice);
       const { status, title } = mapStatusToResut(playerResut);
       setResult({ status, title });
-      // setScore
+      // setScore(() => {
+      //   if (playerResut === "win") {
+      //     lastScore.win += 1;
+      //   }
+
+      //   return lastScore;
+      // });
     }
   };
 
