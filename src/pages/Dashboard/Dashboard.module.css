@@ -1,0 +1,9 @@
+.link {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.link:hover {
+  background-color: #f0f2f5;
+}
