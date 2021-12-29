@@ -48,6 +48,14 @@
               "kebabCase": true
             }
           }
+        ],
+        "unicorn/prevent-abbreviations": [
+          "error",
+          {
+            "allowList": {
+              "Props": true
+            }
+          }
         ]
       }
     },
