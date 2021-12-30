@@ -6,9 +6,9 @@ const StatusResut: Record<string, IResult> = {
   tie: { status: "warning", title: "Tie" },
 };
 
-const compare = (player1Choice: Choice, player2Choice: Choice): Status => {
-  if (player1Choice.id === player2Choice.id) return "tie";
-  if (player1Choice.beats === player2Choice.id) return "win";
+const compare = (playerOneChoice: Choice, playerTwoChoice: Choice): Status => {
+  if (playerOneChoice.id === playerTwoChoice.id) return "tie";
+  if (playerOneChoice.beats === playerTwoChoice.id) return "win";
   return "lose";
 };
 

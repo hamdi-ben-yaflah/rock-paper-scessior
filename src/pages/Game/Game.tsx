@@ -2,7 +2,7 @@
 import { Row, Col, Typography, Avatar, Tooltip } from "antd";
 import React, { useEffect, useState, useContext } from "react";
 import { ChoicesContext } from "../../App";
-import Resut from "../../components/Result/Resut";
+import ResultPopup from "../../components/ResultPopup/ResultPopup";
 import QuestionSign from "../../icons/QuestionSign";
 import { Choice, IResult, Status } from "../../typings/game";
 import { mapStatusToResut, compare } from "../../utils/utils";
@@ -16,24 +16,33 @@ const { Title } = Typography;
 
 function Game({ setScore }: GameProps) {
   const choices = useContext(ChoicesContext);
-  const [resut, setResult] = useState<IResult>();
+  const [result, setResult] = useState<IResult>();
   const [playerChoice, setPlayerChoice] = useState<Choice>();
   const [computerChoice, setComputerChoice] = useState<Choice>();
 
+  const resetGame = () => {
+    setResult(undefined);
+    setPlayerChoice(undefined);
+    const randomChoice = choices[Math.floor(Math.random() * choices.length)];
+    setComputerChoice(randomChoice);
+  };
+
   useEffect(() => {
-    setComputerChoice(choices[Math.floor(Math.random() * choices.length)]);
-  }, [resut]);
+    resetGame();
+  }, []);
 
-  const handlePlayChoices = (id: number): void => {
-    const choisen = choices.find((c) => c.id === id);
-    setPlayerChoice(choisen);
-
-    if (playerChoice && computerChoice) {
-      const playerResut = compare(playerChoice, computerChoice);
+  useEffect(() => {
+    if (playerChoice) {
+      const playerResut = compare(playerChoice, computerChoice!);
       const { status, title } = mapStatusToResut(playerResut);
       setResult({ status, title });
       setScore(playerResut);
     }
+  }, [playerChoice]);
+
+  const handlePlayChoices = (id: number): void => {
+    const choisen = choices.find((c) => c.id === id);
+    setPlayerChoice(choisen);
   };
 
   return (
@@ -77,12 +86,14 @@ function Game({ setScore }: GameProps) {
         </Col>
       </Row>
 
-      {resut && (
-        <Resut
-          status={resut.status}
-          title={resut.title}
-          playAgain={() => setResult(undefined)}
-          isModalVisible={!!resut}
+      {result && (
+        <ResultPopup
+          status={result?.status!}
+          title={result?.title!}
+          choiceOne={playerChoice!}
+          choiceTwo={computerChoice!}
+          playAgain={() => resetGame()}
+          isModalVisible={!!result}
         />
       )}
     </>
