@@ -1,0 +1,15 @@
+.container {
+  margin-top: 32px;
+}
+
+.avatarRow {
+  margin: 8px 0;
+}
+
+.avatar {
+  background-color: #87d068;
+}
+
+.avatar:hover {
+  cursor: pointer;
+}

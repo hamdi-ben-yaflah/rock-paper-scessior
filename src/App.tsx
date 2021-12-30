@@ -6,7 +6,7 @@ import Score from "./components/Score/Score";
 import Game from "./pages/Game/Game";
 import AutoPlay from "./pages/Auto-play/AutoPlay";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import { Choice, IGameMode, IScore } from "./typings/game";
+import { Choice, IGameMode, IScore, Status } from "./typings/game";
 import Rock from "./icons/Rock";
 import Paper from "./icons/Paper";
 import Scessior from "./icons/Scessior";
@@ -25,6 +25,19 @@ function App() {
   const [socre, setScore] = useState<IScore>({ wins: 0, loses: 0 });
   const [gameMode, setGameMode] = useState<IGameMode>();
 
+  const handleScore = (playerResut: Status) => {
+    if (playerResut === "win")
+      setScore((lastScore) => ({
+        wins: lastScore.wins + 1,
+        loses: lastScore.loses,
+      }));
+    if (playerResut === "lose")
+      setScore((lastScore) => ({
+        wins: lastScore.wins,
+        loses: lastScore.loses + 1,
+      }));
+  };
+
   return (
     <Layout>
       {gameMode !== "not-set" && (
@@ -40,7 +53,7 @@ function App() {
                 path="/"
                 element={<Dashboard setGameMode={setGameMode} />}
               />
-              <Route path="/solo" element={<Game setScore={setScore} />} />
+              <Route path="/solo" element={<Game setScore={handleScore} />} />
               <Route path="/auto" element={<AutoPlay />} />
             </Routes>
           </Router>

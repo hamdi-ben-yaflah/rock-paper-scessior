@@ -6,7 +6,7 @@ const StatusResut: Record<string, IResult> = {
   tie: { status: "warning", title: "Tie" },
 };
 
-const winner = (player1Choice: Choice, player2Choice: Choice): Status => {
+const compare = (player1Choice: Choice, player2Choice: Choice): Status => {
   if (player1Choice.id === player2Choice.id) return "tie";
   if (player1Choice.beats === player2Choice.id) return "win";
   return "lose";
@@ -19,4 +19,4 @@ const mapStatusToResut = (status: Status): IResult => {
   };
 };
 
-export { winner, mapStatusToResut };
+export { compare, mapStatusToResut };

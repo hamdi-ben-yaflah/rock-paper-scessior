@@ -17,6 +17,7 @@ function Resut({ status, title, isModalVisible, playAgain }: ResutProps) {
           Play Again
         </Button>,
       ]}
+      onCancel={playAgain}
     >
       <Result status={status} title={title} />
     </Modal>
