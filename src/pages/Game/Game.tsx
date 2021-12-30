@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { Row, Col, Typography, Avatar, Tooltip, Space } from "antd";
+import { Row, Col, Typography, Avatar, Tooltip, Space, Button } from "antd";
 import React, { useEffect, useState, useContext } from "react";
 import { ChoicesContext } from "../../App";
 import ResultPopup from "../../components/ResultPopup/ResultPopup";
+import UsernamePopup from "../../components/UsernamePopup/UsernamePopup";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import QuestionSign from "../../icons/QuestionSign";
 import { Choice, IResult, Status } from "../../typings/game";
 import { mapStatusToIResut, compare } from "../../utils/utils";
@@ -15,6 +17,7 @@ interface GameProps {
 const { Title } = Typography;
 
 function Game({ setScore }: GameProps) {
+  const [username, setUsername] = useLocalStorage("username", "");
   const choices = useContext(ChoicesContext);
   const [result, setResult] = useState<IResult>();
   const [playerChoice, setPlayerChoice] = useState<Choice>();
@@ -41,7 +44,7 @@ function Game({ setScore }: GameProps) {
   }, [playerChoice]);
 
   const handlePlayChoices = (id: number): void => {
-    const choisen = choices.find((c) => c.id === id);
+    const choisen = choices.find((choice) => choice.id === id);
     setPlayerChoice(choisen);
   };
 
@@ -49,7 +52,7 @@ function Game({ setScore }: GameProps) {
     <div className={styles.container}>
       <Row className={styles.header}>
         <Col span={11}>
-          <Title level={2}>Username</Title>
+          <Title level={2}>{username || "Username"}</Title>
         </Col>
         <Col span={2}>
           <Title level={5}>VS</Title>
@@ -96,6 +99,11 @@ function Game({ setScore }: GameProps) {
           isModalVisible={!!result}
         />
       )}
+
+      <UsernamePopup
+        setUsername={setUsername}
+        isModalVisible={username === ""}
+      />
     </div>
   );
 }
