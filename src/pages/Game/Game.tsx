@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-import { Row, Col, Typography, Avatar, Tooltip } from "antd";
+import { Row, Col, Typography, Avatar, Tooltip, Space } from "antd";
 import React, { useEffect, useState, useContext } from "react";
 import { ChoicesContext } from "../../App";
 import ResultPopup from "../../components/ResultPopup/ResultPopup";
 import QuestionSign from "../../icons/QuestionSign";
 import { Choice, IResult, Status } from "../../typings/game";
-import { mapStatusToResut, compare } from "../../utils/utils";
+import { mapStatusToIResut, compare } from "../../utils/utils";
 import styles from "./Game.module.css";
 
 interface GameProps {
@@ -34,7 +34,7 @@ function Game({ setScore }: GameProps) {
   useEffect(() => {
     if (playerChoice) {
       const playerResut = compare(playerChoice, computerChoice!);
-      const { status, title } = mapStatusToResut(playerResut);
+      const { status, title } = mapStatusToIResut(playerResut);
       setResult({ status, title });
       setScore(playerResut);
     }
@@ -46,8 +46,8 @@ function Game({ setScore }: GameProps) {
   };
 
   return (
-    <>
-      <Row className={styles.container}>
+    <div className={styles.container}>
+      <Row className={styles.header}>
         <Col span={11}>
           <Title level={2}>Username</Title>
         </Col>
@@ -96,7 +96,7 @@ function Game({ setScore }: GameProps) {
           isModalVisible={!!result}
         />
       )}
-    </>
+    </div>
   );
 }
 

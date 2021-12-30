@@ -29,7 +29,6 @@ function Dashboard({ setGameMode }: DashboardProps) {
           >
             <Person /> <Title level={3}> VS </Title> <Computer />
           </Link>
-          <Title level={5}> You VS Computer </Title>
         </Col>
         <Col span={2}>/</Col>
         <Col span={11}>
@@ -40,7 +39,6 @@ function Dashboard({ setGameMode }: DashboardProps) {
           >
             <Computer /> <Title level={3}> VS </Title> <Computer />
           </Link>
-          <Title level={5}> Computer VS Computer </Title>
         </Col>
       </Row>
     </Space>

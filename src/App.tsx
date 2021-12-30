@@ -54,7 +54,10 @@ function App() {
                 element={<Dashboard setGameMode={setGameMode} />}
               />
               <Route path="/solo" element={<Game setScore={handleScore} />} />
-              <Route path="/auto" element={<AutoPlay />} />
+              <Route
+                path="/auto"
+                element={<AutoPlay setScore={handleScore} />}
+              />
             </Routes>
           </Router>
         </ChoicesContext.Provider>

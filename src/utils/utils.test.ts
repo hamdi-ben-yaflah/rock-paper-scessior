@@ -1,5 +1,5 @@
 import { Choice } from "../typings/game";
-import { compare, mapStatusToResut } from "./utils";
+import { compare, mapStatusToIResut } from "./utils";
 
 describe("compare", () => {
   const rock: Choice = {
@@ -52,19 +52,19 @@ describe("compare", () => {
 
 describe("mapStatusToResult", () => {
   it("should map to win result", () => {
-    expect(mapStatusToResut("win")).toEqual({
+    expect(mapStatusToIResut("win")).toEqual({
       status: "success",
       title: "You Win",
     });
   });
   it("should map to lose result", () => {
-    expect(mapStatusToResut("lose")).toEqual({
+    expect(mapStatusToIResut("lose")).toEqual({
       status: "error",
       title: "You Lose",
     });
   });
   it("should map to tie result", () => {
-    expect(mapStatusToResut("tie")).toEqual({
+    expect(mapStatusToIResut("tie")).toEqual({
       status: "warning",
       title: "Tie",
     });

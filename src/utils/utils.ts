@@ -12,11 +12,11 @@ const compare = (playerOneChoice: Choice, playerTwoChoice: Choice): Status => {
   return "lose";
 };
 
-const mapStatusToResut = (status: Status): IResult => {
+const mapStatusToIResut = (status: Status): IResult => {
   return {
     status: StatusResut[status].status,
     title: StatusResut[status].title,
   };
 };
 
-export { compare, mapStatusToResut };
+export { compare, mapStatusToIResut };
