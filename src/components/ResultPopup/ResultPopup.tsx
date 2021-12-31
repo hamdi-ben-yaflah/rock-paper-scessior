@@ -19,6 +19,10 @@ function ResultPopup({
 }: ResutProps) {
   return (
     <Modal
+      wrapProps={{
+        "data-cy": "result-popup",
+        "data-testid": "result-popup",
+      }}
       title="Resut"
       visible={isModalVisible}
       footer={[
@@ -29,9 +33,9 @@ function ResultPopup({
       onCancel={playAgain}
     >
       <Row justify="space-between">
-        {choiceOne.component}
+        <div data-testid="player-one-choice">{choiceOne.component}</div>
         <Result status={status} title={title} />
-        {choiceTwo.component}
+        <div data-testid="player-two-choice">{choiceTwo.component}</div>
       </Row>
     </Modal>
   );
