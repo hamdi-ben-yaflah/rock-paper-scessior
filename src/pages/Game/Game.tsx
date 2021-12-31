@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { Row, Col, Typography, Avatar, Tooltip, Space, Button } from "antd";
+import { EditOutlined } from "@ant-design/icons";
 import React, { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { ChoicesContext } from "../../App";
 import ResultPopup from "../../components/ResultPopup/ResultPopup";
 import UsernamePopup from "../../components/UsernamePopup/UsernamePopup";
@@ -52,7 +54,16 @@ function Game({ setScore }: GameProps) {
     <div className={styles.container}>
       <Row className={styles.header}>
         <Col span={11}>
-          <Title level={2}>{username || "Username"}</Title>
+          <Row justify="center" className={styles.username}>
+            <Title level={2}>{username || "Username"}</Title>
+            {username && (
+              <Button
+                shape="round"
+                icon={<EditOutlined />}
+                onClick={() => setUsername("")}
+              />
+            )}
+          </Row>
         </Col>
         <Col span={2}>
           <Title level={5}>VS</Title>
@@ -71,10 +82,11 @@ function Game({ setScore }: GameProps) {
                     <Avatar
                       className={styles.avatar}
                       size={{
-                        sm: 32,
-                        md: 40,
+                        sm: 64,
+                        md: 64,
                         lg: 64,
                         xl: 80,
+                        xxl: 80,
                       }}
                       icon={component}
                     />
@@ -88,7 +100,11 @@ function Game({ setScore }: GameProps) {
           <QuestionSign />
         </Col>
       </Row>
-
+      <Row justify="center">
+        <Button type="primary" shape="round">
+          <Link to="/auto">Switch to auto play mode</Link>
+        </Button>
+      </Row>
       {result && (
         <ResultPopup
           status={result?.status!}
