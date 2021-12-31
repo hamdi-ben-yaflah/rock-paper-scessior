@@ -15,7 +15,7 @@ test("users should set their username correctly", () => {
   const setUsername = jest.fn();
   render(<UsernamePopup setUsername={setUsername} isModalVisible />);
   const input = screen.getByRole("textbox");
-  const saveButton = screen.getByRole("button", { name: /ok/i });
+  const saveButton = screen.getByText(/save/i);
 
   userEvents.type(input, "random-username");
   userEvents.click(saveButton);

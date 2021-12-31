@@ -34,7 +34,7 @@ function UsernamePopup({ setUsername, isModalVisible }: UsernamePopupProps) {
           onClick={handleOk}
           data-cy="save-button"
         >
-          Play Again
+          Save
         </Button>,
       ]}
     >
