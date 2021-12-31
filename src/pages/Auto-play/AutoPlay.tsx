@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import { Row, Col, Typography, Avatar, Tooltip, Button, Space } from "antd";
 import React, { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { ChoicesContext } from "../../App";
 import ResultPopup from "../../components/ResultPopup/ResultPopup";
 import QuestionSign from "../../icons/QuestionSign";
-import { Choice, IResult, Status } from "../../typings/game";
+import { Choice, IGameMode, IResult, Status } from "../../typings/game";
 import { mapStatusToIResut, compare } from "../../utils/utils";
 import styles from "./AutoPlay.module.css";
 
@@ -69,16 +70,23 @@ function AutoPlay({ setScore }: AutoPlayProps) {
           <QuestionSign />
         </Col>
       </Row>
-      <Row justify="center">
-        <Button
-          danger
-          type="primary"
-          shape="round"
-          onClick={handleComputersChoices}
-        >
-          Start The Game
-        </Button>
-      </Row>
+      <Space direction="vertical">
+        <Row justify="center">
+          <Button
+            danger
+            type="primary"
+            shape="round"
+            onClick={handleComputersChoices}
+          >
+            Start The Game
+          </Button>
+        </Row>
+        <Row justify="center">
+          <Button type="primary" shape="round">
+            <Link to="/solo">Switch to solo mode</Link>
+          </Button>
+        </Row>
+      </Space>
 
       {result && (
         <ResultPopup

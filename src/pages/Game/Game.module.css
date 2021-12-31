@@ -17,3 +17,7 @@
 .avatar:hover {
   cursor: pointer;
 }
+
+.username > h2 {
+  margin-right: 8px;
+}
