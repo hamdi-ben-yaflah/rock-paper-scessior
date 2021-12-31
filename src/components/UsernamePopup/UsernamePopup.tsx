@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Input, Modal } from "antd";
+import { Button, Input, Modal } from "antd";
 import React, { useState } from "react";
 
 interface UsernamePopupProps {
@@ -27,12 +27,22 @@ function UsernamePopup({ setUsername, isModalVisible }: UsernamePopupProps) {
       }}
       title="Username"
       visible={isModalVisible}
-      onOk={handleOk}
+      footer={[
+        <Button
+          key="ok"
+          type="primary"
+          onClick={handleOk}
+          data-cy="save-button"
+        >
+          Play Again
+        </Button>,
+      ]}
     >
       <Input
         placeholder="Enter your username"
         value={localUsername}
         onChange={handleUsername}
+        data-cy="username-input"
       />
     </Modal>
   );

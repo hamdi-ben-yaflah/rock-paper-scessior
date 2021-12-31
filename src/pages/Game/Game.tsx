@@ -55,7 +55,11 @@ function Game({ setScore }: GameProps) {
     <div className={styles.container}>
       <Row className={styles.header}>
         <Col span={11}>
-          <Row justify="center" className={styles.username}>
+          <Row
+            justify="center"
+            className={styles.username}
+            data-cy="username-label"
+          >
             <Title level={2}>{username || "Username"}</Title>
             {username && (
               <Button

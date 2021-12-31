@@ -17,31 +17,35 @@ function Dashboard({ setGameMode }: DashboardProps) {
   useEffect(() => setGameMode("not-set"), []);
 
   return (
-    <Space direction="vertical">
-      <Title>Welcome To Rock, Paper, Scessior Game</Title>
-      <Title level={3}>Choose The Game Mode</Title>
-      <Row justify="center">
-        <Col span={11}>
-          <Link
-            to="/solo"
-            className={styles.link}
-            onClick={() => setGameMode("solo")}
-          >
-            <Person /> <Title level={3}> VS </Title> <Computer />
-          </Link>
-        </Col>
-        <Col span={2}>/</Col>
-        <Col span={11}>
-          <Link
-            to="/auto"
-            className={styles.link}
-            onClick={() => setGameMode("auto")}
-          >
-            <Computer /> <Title level={3}> VS </Title> <Computer />
-          </Link>
-        </Col>
-      </Row>
-    </Space>
+    <div data-cy="dashboard-page">
+      <Space direction="vertical">
+        <Title>Welcome To Rock, Paper, Scessior Game</Title>
+        <Title level={3}>Choose The Game Mode</Title>
+        <Row justify="center">
+          <Col span={11}>
+            <Link
+              data-cy="solo-button"
+              to="/solo"
+              className={styles.link}
+              onClick={() => setGameMode("solo")}
+            >
+              <Person /> <Title level={3}> VS </Title> <Computer />
+            </Link>
+          </Col>
+          <Col span={2}>/</Col>
+          <Col span={11}>
+            <Link
+              data-cy="auto-play-button"
+              to="/auto"
+              className={styles.link}
+              onClick={() => setGameMode("auto")}
+            >
+              <Computer /> <Title level={3}> VS </Title> <Computer />
+            </Link>
+          </Col>
+        </Row>
+      </Space>
+    </div>
   );
 }
 
