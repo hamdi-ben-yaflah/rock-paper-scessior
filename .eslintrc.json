@@ -45,7 +45,7 @@
       }
     },
     {
-      "files": ["*.spec.ts", "*.spec.js"],
+      "files": ["*.spec.ts", "*.spec.js", "*.cy.test.ts"],
       "rules": {
         "jest/expect-expect": "off"
       }

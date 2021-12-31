@@ -1,4 +1,6 @@
 {
+  "integrationFolder": "src",
+  "testFiles": "**/*.cy.test.ts",
   "baseUrl": "http://localhost:3000",
   "video": false
 }
