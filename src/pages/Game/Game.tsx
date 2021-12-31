@@ -9,7 +9,7 @@ import UsernamePopup from "../../components/UsernamePopup/UsernamePopup";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import QuestionSign from "../../icons/QuestionSign";
 import { IChoice, IResult, Status } from "../../typings/game";
-import { mapStatusToIResut, compare } from "../../utils/utils";
+import { mapStatusToIResut, getPlayerOneStatus } from "../../utils/utils";
 import styles from "./Game.module.css";
 
 interface GameProps {
@@ -39,7 +39,7 @@ function Game({ setScore }: GameProps) {
 
   useEffect(() => {
     if (playerChoice) {
-      const playerResut = compare(playerChoice, computerChoice!);
+      const playerResut = getPlayerOneStatus(playerChoice, computerChoice!);
       const { status, title } = mapStatusToIResut(playerResut);
       setResult({ status, title });
       setScore(playerResut);
@@ -59,6 +59,8 @@ function Game({ setScore }: GameProps) {
             <Title level={2}>{username || "Username"}</Title>
             {username && (
               <Button
+                ghost
+                type="primary"
                 shape="round"
                 icon={<EditOutlined />}
                 onClick={() => setUsername("")}

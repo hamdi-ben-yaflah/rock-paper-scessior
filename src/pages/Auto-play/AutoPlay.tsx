@@ -6,7 +6,7 @@ import { ChoicesContext } from "../../App";
 import ResultPopup from "../../components/ResultPopup/ResultPopup";
 import QuestionSign from "../../icons/QuestionSign";
 import { IChoice, IResult, Status } from "../../typings/game";
-import { mapStatusToIResut, compare } from "../../utils/utils";
+import { mapStatusToIResut, getPlayerOneStatus } from "../../utils/utils";
 import styles from "./AutoPlay.module.css";
 
 interface AutoPlayProps {
@@ -34,7 +34,10 @@ function AutoPlay({ setScore }: AutoPlayProps) {
 
   useEffect(() => {
     if (computerOneChoice && computerTwoChoice) {
-      const computerOneResult = compare(computerOneChoice, computerTwoChoice!);
+      const computerOneResult = getPlayerOneStatus(
+        computerOneChoice,
+        computerTwoChoice!
+      );
       const { status, title } = mapStatusToIResut(computerOneResult);
       setResult({ status, title });
       setScore(computerOneResult);
@@ -74,7 +77,7 @@ function AutoPlay({ setScore }: AutoPlayProps) {
       <Space direction="vertical">
         <Row justify="center">
           <Button
-            danger
+            ghost
             type="primary"
             shape="round"
             onClick={handleComputersChoices}

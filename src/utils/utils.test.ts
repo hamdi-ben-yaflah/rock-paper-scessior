@@ -1,5 +1,5 @@
 import { IChoice } from "../typings/game";
-import { compare, mapStatusToIResut } from "./utils";
+import { getPlayerOneStatus, mapStatusToIResut } from "./utils";
 
 describe("compare", () => {
   const rock: IChoice = {
@@ -22,31 +22,31 @@ describe("compare", () => {
   };
 
   it("should return tie when both arguments are equal", () => {
-    expect(compare(rock, rock)).toBe("tie");
-    expect(compare(paper, paper)).toBe("tie");
-    expect(compare(scissors, scissors)).toBe("tie");
+    expect(getPlayerOneStatus(rock, rock)).toBe("tie");
+    expect(getPlayerOneStatus(paper, paper)).toBe("tie");
+    expect(getPlayerOneStatus(scissors, scissors)).toBe("tie");
   });
 
   it("should return win if choice one is rock and choice two is scessior", () => {
-    expect(compare(rock, scissors)).toBe("win");
+    expect(getPlayerOneStatus(rock, scissors)).toBe("win");
   });
 
   it("should return win if choice one is paper and choice two is rock", () => {
-    expect(compare(paper, rock)).toBe("win");
+    expect(getPlayerOneStatus(paper, rock)).toBe("win");
   });
 
   it("should return win if choice one is scissors and choice two is paper", () => {
-    expect(compare(scissors, paper)).toBe("win");
+    expect(getPlayerOneStatus(scissors, paper)).toBe("win");
   });
 
   it("should return lose if choice one is rock and choice two is paper", () => {
-    expect(compare(rock, paper)).toBe("lose");
+    expect(getPlayerOneStatus(rock, paper)).toBe("lose");
   });
   it("should return lose if choice one is paper and choice two is scissors", () => {
-    expect(compare(paper, scissors)).toBe("lose");
+    expect(getPlayerOneStatus(paper, scissors)).toBe("lose");
   });
   it("should return lose if choice one is scissors and choice two is rock", () => {
-    expect(compare(scissors, rock)).toBe("lose");
+    expect(getPlayerOneStatus(scissors, rock)).toBe("lose");
   });
 });
 
