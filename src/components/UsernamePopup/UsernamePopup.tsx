@@ -20,7 +20,15 @@ function UsernamePopup({ setUsername, isModalVisible }: UsernamePopupProps) {
   };
 
   return (
-    <Modal title="Username" visible={isModalVisible} onOk={handleOk}>
+    <Modal
+      wrapProps={{
+        "data-cy": "username-popup",
+        "data-testid": "username-popup",
+      }}
+      title="Username"
+      visible={isModalVisible}
+      onOk={handleOk}
+    >
       <Input
         placeholder="Enter your username"
         value={localUsername}
