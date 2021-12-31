@@ -47,7 +47,7 @@ function App() {
     <Layout>
       {gameMode !== "not-set" && (
         <Header>
-          <Score score={socre} />
+          <Score score={socre} setScore={handleScore} />
         </Header>
       )}
       <Content className="main-content">
