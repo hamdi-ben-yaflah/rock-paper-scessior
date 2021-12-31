@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ChoicesContext } from "../../App";
 import ResultPopup from "../../components/ResultPopup/ResultPopup";
 import QuestionSign from "../../icons/QuestionSign";
-import { Choice, IGameMode, IResult, Status } from "../../typings/game";
+import { IChoice, IResult, Status } from "../../typings/game";
 import { mapStatusToIResut, compare } from "../../utils/utils";
 import styles from "./AutoPlay.module.css";
 
@@ -17,8 +17,8 @@ const { Title } = Typography;
 
 function AutoPlay({ setScore }: AutoPlayProps) {
   const choices = useContext(ChoicesContext);
-  const [computerOneChoice, setComputerOneChoice] = useState<Choice>();
-  const [computerTwoChoice, setComputerTwoChoice] = useState<Choice>();
+  const [computerOneChoice, setComputerOneChoice] = useState<IChoice>();
+  const [computerTwoChoice, setComputerTwoChoice] = useState<IChoice>();
   const [result, setResult] = useState<IResult>();
 
   const resetGame = () => {
@@ -28,6 +28,7 @@ function AutoPlay({ setScore }: AutoPlayProps) {
   };
 
   useEffect(() => {
+    setScore("not-set");
     resetGame();
   }, []);
 

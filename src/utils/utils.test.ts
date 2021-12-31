@@ -1,20 +1,20 @@
-import { Choice } from "../typings/game";
+import { IChoice } from "../typings/game";
 import { compare, mapStatusToIResut } from "./utils";
 
 describe("compare", () => {
-  const rock: Choice = {
+  const rock: IChoice = {
     id: 1,
     name: "rock",
     component: null,
     beats: 3,
   };
-  const paper: Choice = {
+  const paper: IChoice = {
     id: 2,
     name: "paper",
     component: null,
     beats: 1,
   };
-  const scissors: Choice = {
+  const scissors: IChoice = {
     id: 3,
     name: "scissors",
     component: null,

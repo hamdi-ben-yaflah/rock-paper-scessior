@@ -1,4 +1,4 @@
-import { Choice, IResult, Status } from "../typings/game";
+import { IChoice, IResult, Status } from "../typings/game";
 
 const StatusResut: Record<string, IResult> = {
   win: { status: "success", title: "You Win" },
@@ -6,7 +6,10 @@ const StatusResut: Record<string, IResult> = {
   tie: { status: "warning", title: "Tie" },
 };
 
-const compare = (playerOneChoice: Choice, playerTwoChoice: Choice): Status => {
+const compare = (
+  playerOneChoice: IChoice,
+  playerTwoChoice: IChoice
+): Status => {
   if (playerOneChoice.id === playerTwoChoice.id) return "tie";
   if (playerOneChoice.beats === playerTwoChoice.id) return "win";
   return "lose";

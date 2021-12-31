@@ -12,6 +12,7 @@ function UsernamePopup({ setUsername, isModalVisible }: UsernamePopupProps) {
 
   const handleOk = () => {
     setUsername(localUsername);
+    setLocalUsername("");
   };
 
   const handleUsername = (event: React.ChangeEvent<HTMLInputElement>) => {

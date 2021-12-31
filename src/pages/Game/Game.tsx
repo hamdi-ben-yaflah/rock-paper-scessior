@@ -8,7 +8,7 @@ import ResultPopup from "../../components/ResultPopup/ResultPopup";
 import UsernamePopup from "../../components/UsernamePopup/UsernamePopup";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import QuestionSign from "../../icons/QuestionSign";
-import { Choice, IResult, Status } from "../../typings/game";
+import { IChoice, IResult, Status } from "../../typings/game";
 import { mapStatusToIResut, compare } from "../../utils/utils";
 import styles from "./Game.module.css";
 
@@ -22,8 +22,8 @@ function Game({ setScore }: GameProps) {
   const [username, setUsername] = useLocalStorage("username", "");
   const choices = useContext(ChoicesContext);
   const [result, setResult] = useState<IResult>();
-  const [playerChoice, setPlayerChoice] = useState<Choice>();
-  const [computerChoice, setComputerChoice] = useState<Choice>();
+  const [playerChoice, setPlayerChoice] = useState<IChoice>();
+  const [computerChoice, setComputerChoice] = useState<IChoice>();
 
   const resetGame = () => {
     setResult(undefined);
@@ -33,6 +33,7 @@ function Game({ setScore }: GameProps) {
   };
 
   useEffect(() => {
+    setScore("not-set");
     resetGame();
   }, []);
 

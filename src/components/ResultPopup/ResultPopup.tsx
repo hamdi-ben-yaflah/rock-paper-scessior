@@ -1,11 +1,11 @@
 import React from "react";
 import { Result, Modal, Button, Row } from "antd";
-import { Choice, IResult } from "../../typings/game";
+import { IChoice, IResult } from "../../typings/game";
 
 interface ResutProps extends IResult {
   isModalVisible: boolean;
-  choiceOne: Choice;
-  choiceTwo: Choice;
+  choiceOne: IChoice;
+  choiceTwo: IChoice;
   playAgain: () => void;
 }
 
