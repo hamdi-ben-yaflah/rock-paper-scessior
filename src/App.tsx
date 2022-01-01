@@ -1,25 +1,16 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Layout } from "antd";
 import "./App.css";
 import Score from "./components/Score/Score";
 import Game from "./pages/Game/Game";
 import AutoPlay from "./pages/Auto-play/AutoPlay";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import { IChoice, IGameMode, IScore, Status } from "./typings/game";
-import Rock from "./icons/Rock";
-import Paper from "./icons/Paper";
-import Scessior from "./icons/Scessior";
+import { IGameMode, IScore, Status } from "./typings/game";
+
+import { AppProviders } from "./AppProviders";
 
 const { Header, Footer, Content } = Layout;
-
-const CHOICES: IChoice[] = [
-  { id: 1, name: "rock", component: <Rock />, beats: 3 },
-  { id: 2, name: "paper", component: <Paper />, beats: 1 },
-  { id: 3, name: "scissors", component: <Scessior />, beats: 2 },
-];
-
-export const ChoicesContext = React.createContext<IChoice[]>([]);
 
 function App() {
   const [socre, setScore] = useState<IScore>({ wins: 0, loses: 0 });
@@ -51,21 +42,13 @@ function App() {
         </Header>
       )}
       <Content className="main-content">
-        <ChoicesContext.Provider value={CHOICES}>
-          <Router>
-            <Routes>
-              <Route
-                path="/"
-                element={<Dashboard setGameMode={setGameMode} />}
-              />
-              <Route path="/solo" element={<Game setScore={handleScore} />} />
-              <Route
-                path="/auto"
-                element={<AutoPlay setScore={handleScore} />}
-              />
-            </Routes>
-          </Router>
-        </ChoicesContext.Provider>
+        <AppProviders>
+          <Routes>
+            <Route path="/" element={<Dashboard setGameMode={setGameMode} />} />
+            <Route path="/solo" element={<Game setScore={handleScore} />} />
+            <Route path="/auto" element={<AutoPlay setScore={handleScore} />} />
+          </Routes>
+        </AppProviders>
       </Content>
       <Footer className="footer">
         AERQ Coding Challenge ©2022 Created by Hamdi Ben Yaflah

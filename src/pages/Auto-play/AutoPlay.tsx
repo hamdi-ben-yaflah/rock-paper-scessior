@@ -2,7 +2,7 @@
 import { Row, Col, Typography, Avatar, Tooltip, Button, Space } from "antd";
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { ChoicesContext } from "../../App";
+import { ChoicesContext } from "../../AppProviders";
 import ResultPopup from "../../components/ResultPopup/ResultPopup";
 import QuestionSign from "../../icons/QuestionSign";
 import { IChoice, IResult, Status } from "../../typings/game";
