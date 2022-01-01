@@ -3,14 +3,14 @@ import { Row, Col, Typography, Avatar, Tooltip, Space, Button } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { ChoicesContext } from "../../App";
 import ResultPopup from "../../components/ResultPopup/ResultPopup";
 import UsernamePopup from "../../components/UsernamePopup/UsernamePopup";
-import useLocalStorage from "../../hooks/useLocalStorage";
+import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import QuestionSign from "../../icons/QuestionSign";
 import { IChoice, IResult, Status } from "../../typings/game";
 import { mapStatusToIResut, getPlayerOneStatus } from "../../utils/utils";
 import styles from "./Game.module.css";
+import { ChoicesContext } from "../../AppProviders";
 
 interface GameProps {
   setScore: (playerResut: Status) => void;
@@ -52,12 +52,21 @@ function Game({ setScore }: GameProps) {
   };
 
   return (
-    <div className={styles.container} data-cy="game-page">
-      <Row className={styles.header} data-cy="game-header">
+    <div
+      className={styles.container}
+      data-testid="game-page"
+      data-cy="game-page"
+    >
+      <Row
+        className={styles.header}
+        data-cy="game-header"
+        data-testid="game-header"
+      >
         <Col span={11}>
           <Row
             justify="center"
             className={styles.username}
+            data-testid="username-label"
             data-cy="username-label"
           >
             <Title level={2}>{username || "Username"}</Title>
@@ -69,6 +78,7 @@ function Game({ setScore }: GameProps) {
                 icon={<EditOutlined />}
                 onClick={() => setUsername("")}
                 data-cy="edit-username-button"
+                data-testid="edit-username-button"
               />
             )}
           </Row>
@@ -85,7 +95,11 @@ function Game({ setScore }: GameProps) {
           {choices &&
             choices.map(({ id, name, component }) => (
               <Row key={id} justify="center" className={styles.avatarRow}>
-                <Col onClick={() => handlePlayChoices(id)} data-cy={name}>
+                <Col
+                  onClick={() => handlePlayChoices(id)}
+                  data-cy={name}
+                  data-testid={name}
+                >
                   <Tooltip title={name} placement="top">
                     <Avatar
                       className={styles.avatar}
@@ -104,7 +118,7 @@ function Game({ setScore }: GameProps) {
             ))}
         </Col>
         <Col span={2}>/</Col>
-        <Col span={11}>
+        <Col span={11} data-testid="question-sign">
           <QuestionSign />
         </Col>
       </Row>

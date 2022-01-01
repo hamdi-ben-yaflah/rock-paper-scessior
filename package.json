@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test src/**/**/*.test.tsx",
+    "test": "react-scripts test src/**/**/*.test.tsx src/**/**/*.test.ts src/**/*.test.ts",
     "eject": "react-scripts eject",
     "prettier": "prettier --write \"**/*.ts\" \"**/*.js\"",
     "lint": "eslint --ext js,ts,tsx src",
