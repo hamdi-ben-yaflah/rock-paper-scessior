@@ -1,46 +1,56 @@
-# Getting Started with Create React App
+# Rock, Paper, Scissors Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h4>Desployed version:</h4><a href="https://rock-paper-scessior-fdjmei4gb-hamdi-ben-yaflah.vercel.app/">Rock, Paper, Scissors Game</a>
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+You can simply clone this repository and run `npm start` to start the project.
 
-### `npm start`
+## Technologies used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<a href="https://reactjs.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a><a href="https://www.typescriptlang.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> <a href="https://jestjs.io" target="_blank"> <img src="https://www.vectorlogo.zone/logos/jestjsio/jestjsio-icon.svg" alt="jest" width="40" height="40"/> </a><a href="https://www.cypress.io" target="_blank"> <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/6e46ec1fc23b60c8fd0d2f2ff46db82e16dbd75f/icons/cypress.svg" alt="cypress" width="40" height="40"/> </a>
+react testing library, github actions, antd
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Structure
 
-### `npm test`
+## Functionalities
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Pipeline
 
-### `npm run build`
+I built a simple CI/CD pipeline with Github actions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It runs on every commit to master branch or any pull request (I did not create any pull request for this project).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The pipeline runs the following steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<ol>
+    <li> Install all dependancies
+    <li> Build the application
+    <li> Run unit and integration tests
+    <li> Check types
+    <li> Run e2e tests
+</ol>
 
-### `npm run eject`
+The deployment is done automatically on each commit to master (configured in Vercel)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+We all know that: "The more your tests resemble the way your software is used, the more confidence they can give you".
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+When it comes to tests, I follow this approach 'Write tests. Not too many. Mostly integration.' from <a href="https://kentcdodds.com/"> Kentcdodds</a> .
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Unit test:
 
-## Learn More
+For the unit test, I tested the custom hook `useLocalStorage` and the all function exported by `utils.ts` file
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Integration test:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Since we are using a UI library (which is unit tested), we only test how these component interaction with each others. Each component/page has its test under the same folder.
+
+### E2E test:
+
+E2E test can give us a HUGE amount of confidence but the thing is, we need to be carefull with writing e2e tests since their are heavy in pipeline, so we always need to ask ourselves "what needs to be tested? and what's not".
+
+I tried to test multiple scenario such as: <strong>Play vs computer</strong> and <strong>Auto play</strong>
+
+## Perspective
