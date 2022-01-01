@@ -17,14 +17,19 @@ function Dashboard({ setGameMode }: DashboardProps) {
   useEffect(() => setGameMode("not-set"), []);
 
   return (
-    <div data-cy="dashboard-page">
+    <div data-cy="dashboard-page" data-testid="dashboard-page">
       <Space direction="vertical">
-        <Title>Welcome To Rock, Paper, Scessior Game</Title>
-        <Title level={3}>Choose The Game Mode</Title>
+        <Title data-testid="dashboard-header">
+          Welcome To Rock, Paper, Scessior Game
+        </Title>
+        <Title level={3} data-testid="dashboard-subheader">
+          Choose The Game Mode
+        </Title>
         <Row justify="center">
           <Col span={11}>
             <Link
               data-cy="solo-button"
+              data-testid="solo-button"
               to="/solo"
               className={styles.link}
               onClick={() => setGameMode("solo")}
@@ -36,6 +41,7 @@ function Dashboard({ setGameMode }: DashboardProps) {
           <Col span={11}>
             <Link
               data-cy="auto-play-button"
+              data-testid="auto-play-button"
               to="/auto"
               className={styles.link}
               onClick={() => setGameMode("auto")}
