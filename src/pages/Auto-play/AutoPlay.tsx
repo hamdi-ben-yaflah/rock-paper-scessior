@@ -52,8 +52,16 @@ function AutoPlay({ setScore }: AutoPlayProps) {
   };
 
   return (
-    <div className={styles.container} data-cy="auto-play-page">
-      <Row className={styles.header} data-cy="auto-play-header">
+    <div
+      className={styles.container}
+      data-cy="auto-play-page"
+      data-testid="auto-play-page"
+    >
+      <Row
+        className={styles.header}
+        data-testid="auto-play-header"
+        data-cy="auto-play-header"
+      >
         <Col span={11}>
           <Title level={2}>Computer 1</Title>
         </Col>
@@ -66,11 +74,11 @@ function AutoPlay({ setScore }: AutoPlayProps) {
       </Row>
 
       <Row>
-        <Col span={11}>
+        <Col span={11} data-testid="question-sign-1">
           <QuestionSign />
         </Col>
         <Col span={2}>/</Col>
-        <Col span={11}>
+        <Col span={11} data-testid="question-sign-2">
           <QuestionSign />
         </Col>
       </Row>
