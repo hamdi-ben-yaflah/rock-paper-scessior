@@ -1,5 +1,5 @@
 {
-  "integrationFolder": "src",
+  "integrationFolder": "cypress/e2e",
   "testFiles": "**/*.cy.test.ts",
   "baseUrl": "http://localhost:3000",
   "video": false

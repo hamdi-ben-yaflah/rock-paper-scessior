@@ -3,10 +3,9 @@
     "airbnb",
     "prettier",
     "plugin:prettier/recommended",
-    "plugin:jest/recommended",
-    "plugin:cypress/recommended"
+    "plugin:jest/recommended"
   ],
-  "plugins": ["prettier", "jest", "cypress"],
+  "plugins": ["prettier", "jest"],
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {

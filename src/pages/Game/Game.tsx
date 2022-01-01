@@ -52,8 +52,8 @@ function Game({ setScore }: GameProps) {
   };
 
   return (
-    <div className={styles.container}>
-      <Row className={styles.header}>
+    <div className={styles.container} data-cy="game-page">
+      <Row className={styles.header} data-cy="game-header">
         <Col span={11}>
           <Row
             justify="center"
@@ -68,6 +68,7 @@ function Game({ setScore }: GameProps) {
                 shape="round"
                 icon={<EditOutlined />}
                 onClick={() => setUsername("")}
+                data-cy="edit-username-button"
               />
             )}
           </Row>
@@ -84,7 +85,7 @@ function Game({ setScore }: GameProps) {
           {choices &&
             choices.map(({ id, name, component }) => (
               <Row key={id} justify="center" className={styles.avatarRow}>
-                <Col onClick={() => handlePlayChoices(id)}>
+                <Col onClick={() => handlePlayChoices(id)} data-cy={name}>
                   <Tooltip title={name} placement="top">
                     <Avatar
                       className={styles.avatar}
@@ -108,7 +109,7 @@ function Game({ setScore }: GameProps) {
         </Col>
       </Row>
       <Row justify="center">
-        <Button type="primary" shape="round">
+        <Button type="primary" shape="round" data-cy="switch-auto-mode">
           <Link to="/auto">Switch to auto play mode</Link>
         </Button>
       </Row>

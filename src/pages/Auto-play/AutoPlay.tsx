@@ -52,8 +52,8 @@ function AutoPlay({ setScore }: AutoPlayProps) {
   };
 
   return (
-    <div className={styles.container}>
-      <Row className={styles.header}>
+    <div className={styles.container} data-cy="auto-play-page">
+      <Row className={styles.header} data-cy="auto-play-header">
         <Col span={11}>
           <Title level={2}>Computer 1</Title>
         </Col>
@@ -81,12 +81,13 @@ function AutoPlay({ setScore }: AutoPlayProps) {
             type="primary"
             shape="round"
             onClick={handleComputersChoices}
+            data-cy="start-button"
           >
             Start The Game
           </Button>
         </Row>
         <Row justify="center">
-          <Button type="primary" shape="round">
+          <Button type="primary" shape="round" data-cy="switch-solo-mode">
             <Link to="/solo">Switch to solo mode</Link>
           </Button>
         </Row>

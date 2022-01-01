@@ -26,7 +26,12 @@ function ResultPopup({
       title="Resut"
       visible={isModalVisible}
       footer={[
-        <Button key="back" type="primary" onClick={playAgain}>
+        <Button
+          key="back"
+          type="primary"
+          onClick={playAgain}
+          data-cy="play-again-button"
+        >
           Play Again
         </Button>,
       ]}
