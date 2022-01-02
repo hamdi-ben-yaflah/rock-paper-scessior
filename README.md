@@ -1,6 +1,6 @@
 # Rock, Paper, Scissors Game
 
-<h4>Desployed version:</h4><a href="https://rock-paper-scessior-fdjmei4gb-hamdi-ben-yaflah.vercel.app/">Rock, Paper, Scissors Game</a>
+<h4>Desployed version:</h4><a href="https://rock-paper-scessior-g5khd89vu-hamdi-ben-yaflah.vercel.app/">Rock, Paper, Scissors Game</a>
 
 ## Demo
 
