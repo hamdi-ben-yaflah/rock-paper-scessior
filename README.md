@@ -52,7 +52,7 @@ First, users are asked to type their username (they can change it afterward), th
 <h3>Auto Play Mode</h3>
 In this mode, it's computer 1 vs computer 2, so as a user, you only need to start the game and watch.
 
-PS: In terms of score, computer 1 in auto-play mode is behaving as a user in solo mode.
+PS: In terms of score, computer 1 in auto-play mode is behaving as a user in solo mode. For instance, "You lose" means Computer 1 has lost the rouond.
 
 In both modes:
 
@@ -96,7 +96,13 @@ For the unit test, I tested the custom hook `useLocalStorage` and all function e
 
 Since we are using a UI library (which is unit tested), we only test how these components interact with each other. Each component/page has its test under the same folder.
 
+I added `data-testid` attribute to give element significant meaning and get them by testid in tests.
+
 ### E2E test:
 
 E2E test can give us a HUGE amount of confidence but the thing is, we need to be careful with writing e2e tests since they are heavy in the pipeline, so we always need to ask ourselves _"what needs to be tested? and what's not?_".
 I tried to test multiple scenarios such as <strong>User is able to play vs computer </strong>etc…
+
+I added `data-cy` attribute to give elements significant meaning and get them by _data-cy_ in tests.
+
+<strong>PS:</strong> For some ant design components, we can't assign `data-*` attribute, that's why I wrap them with a `div` element sometimes.

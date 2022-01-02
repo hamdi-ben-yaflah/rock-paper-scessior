@@ -1,5 +1,5 @@
 import React from "react";
-import { Result, Modal, Button, Row } from "antd";
+import { Result, Modal, Button, Row, Col } from "antd";
 import { IChoice, IResult } from "../../typings/game";
 
 interface ResutProps extends IResult {
@@ -38,9 +38,15 @@ function ResultPopup({
       onCancel={playAgain}
     >
       <Row justify="space-between">
-        <div data-testid="player-one-choice">{choiceOne.component}</div>
-        <Result status={status} title={title} />
-        <div data-testid="player-two-choice">{choiceTwo.component}</div>
+        <Col span={7} data-testid="player-one-choice">
+          {choiceOne.component}
+        </Col>
+        <Col span={10}>
+          <Result status={status} title={title} />
+        </Col>
+        <Col span={7} data-testid="player-two-choice">
+          {choiceTwo.component}
+        </Col>
       </Row>
     </Modal>
   );

@@ -18,22 +18,22 @@ function Score({ score = { wins: 0, loses: 0 }, setScore }: ScorePrpos) {
       data-cy="score-banner"
       data-testid="score-banner"
     >
-      <Col sm={4} md={4} lg={6} xl={8} xxl={10}>
+      <Col xs={2} sm={4} md={4} lg={6} xl={8} xxl={10}>
         <Title type="success" level={2}>
           <span data-testid="player-one-score">{score.wins}</span>
         </Title>
       </Col>
-      <Col sm={12} md={12} lg={8} xl={4} xxl={4}>
+      <Col xs={20} sm={4} md={12} lg={8} xl={4} xxl={4}>
         <Title type="warning" level={2}>
           Score
         </Title>
       </Col>
-      <Col sm={4} md={4} lg={6} xl={8} xxl={8}>
+      <Col xs={2} sm={4} md={4} lg={6} xl={8} xxl={8}>
         <Title type="danger" level={2}>
           <span data-testid="player-two-score"> {score.loses}</span>
         </Title>
       </Col>
-      <Col sm={4} md={4} lg={4} xl={4} xxl={2}>
+      <Col xs={24} sm={4} md={4} lg={4} xl={4} xxl={2}>
         <Button
           danger
           type="primary"

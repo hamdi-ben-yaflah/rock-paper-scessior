@@ -2,8 +2,11 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  border-radius: 30px;
+  background-color: #f4511e;
+  opacity: 0.6;
 }
 
 .link:hover {
-  background-color: #f0f2f5;
+  opacity: 1;
 }

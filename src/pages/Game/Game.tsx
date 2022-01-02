@@ -62,7 +62,7 @@ function Game({ setScore }: GameProps) {
         data-cy="game-header"
         data-testid="game-header"
       >
-        <Col span={11}>
+        <Col span={12}>
           <Row
             justify="center"
             className={styles.username}
@@ -86,12 +86,12 @@ function Game({ setScore }: GameProps) {
         <Col span={2}>
           <Title level={5}>VS</Title>
         </Col>
-        <Col span={11}>
+        <Col span={10}>
           <Title level={2}>Computer</Title>
         </Col>
       </Row>
       <Row>
-        <Col span={11}>
+        <Col span={12}>
           {choices &&
             choices.map(({ id, name, component }) => (
               <Row key={id} justify="center" className={styles.avatarRow}>
@@ -104,6 +104,7 @@ function Game({ setScore }: GameProps) {
                     <Avatar
                       className={styles.avatar}
                       size={{
+                        xs: 64,
                         sm: 64,
                         md: 64,
                         lg: 64,
@@ -118,7 +119,7 @@ function Game({ setScore }: GameProps) {
             ))}
         </Col>
         <Col span={2}>/</Col>
-        <Col span={11} data-testid="question-sign">
+        <Col span={10} data-testid="question-sign">
           <QuestionSign />
         </Col>
       </Row>
