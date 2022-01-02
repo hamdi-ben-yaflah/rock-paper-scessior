@@ -2,6 +2,10 @@
 
 <h4>Desployed version:</h4><a href="https://rock-paper-scessior-fdjmei4gb-hamdi-ben-yaflah.vercel.app/">Rock, Paper, Scissors Game</a>
 
+## Demo
+
+https://user-images.githubusercontent.com/34003032/147869758-b850584b-af7a-4fca-b29c-e6151c1357ba.mov
+
 ## Installation
 
 You can simply clone this repository and run `npm start` to start the project.
@@ -52,7 +56,7 @@ First, users are asked to type their username (they can change it afterward), th
 <h3>Auto Play Mode</h3>
 In this mode, it's computer 1 vs computer 2, so as a user, you only need to start the game and watch.
 
-PS: In terms of score, computer 1 in auto-play mode is behaving as a user in solo mode. For instance, "You lose" means Computer 1 has lost the rouond.
+PS: In terms of score, computer 1 in auto-play mode is behaving as a user in solo mode. For instance, "You lose" means Computer 1 has lost the round.
 
 In both modes:
 
